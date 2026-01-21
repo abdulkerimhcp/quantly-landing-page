@@ -7,12 +7,47 @@
     <title>Quantly | Harcamalarınızı Yönetmenin En Akıllı Yolu</title>
     <meta name="description"
         content="Yapay zeka gücüyle fişlerinizi tarayın, harcamalarınızı saniyeler içinde analiz edin. Quantly ile finansal özgürlüğünüzü geri kazanın.">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         :root {
             --primary-emerald: #10b981;
@@ -22,7 +57,6 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
-            /* Pure Black */
             color: #f5f5f5;
             margin: 0;
             overflow-x: hidden;
@@ -43,27 +77,48 @@
 
         .glass-card {
             background: rgba(23, 23, 23, 0.6);
-            /* Neutral 900 with opacity */
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .glow-text {
-            text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
         }
 
         .gradient-btn {
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #ffffff 0%, #10b981 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Range Slider Customization */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
         }
 
-        /* Custom Scrollbar */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .group\/progress:hover input[type=range]::-webkit-slider-thumb,
+        .group\/progress:active input[type=range]::-webkit-slider-thumb {
+            opacity: 1;
+        }
+
+        /* Volume slider specific */
+        .volume-slider::-webkit-slider-thumb {
+            opacity: 1;
+            height: 12px;
+            width: 12px;
+            margin-top: -4px;
+        }
+
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -81,22 +136,705 @@
             background: #404040;
         }
     </style>
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.3.1",
-    "react/": "https://esm.sh/react@18.3.1/",
-    "react-dom": "https://esm.sh/react-dom@18.3.1",
-    "react-dom/": "https://esm.sh/react-dom@18.3.1/",
-    "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react"
-  }
-}
-</script>
 </head>
 
-<body>
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+<body class="selection:bg-emerald-500/30 selection:text-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-black font-bold">Q
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">Quantly</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-400">
+                <a href="#ozellikler" class="hover:text-white transition-colors">Özellikler</a>
+                <a href="#nasil-calisir" class="hover:text-white transition-colors">Nasıl Çalışır</a>
+                <button
+                    class="bg-white/5 hover:bg-white/10 text-white px-5 py-2 rounded-full transition-all backdrop-blur-sm border border-white/10">
+                    Giriş Yap
+                </button>
+                <button
+                    class="gradient-btn text-white px-5 py-2 rounded-full transition-all hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-105 font-semibold">
+                    İndir
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+        class="relative pt-36 pb-20 px-6 overflow-hidden min-h-screen flex flex-col items-center justify-center bg-black">
+        <!-- Background Glows -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-900/20 rounded-full blur-[120px] -z-10 opacity-60">
+        </div>
+
+        <!-- Text Content -->
+        <div class="text-center max-w-4xl mx-auto space-y-6 animate-fade-in-up z-20 mb-16">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-emerald-400 text-xs font-semibold tracking-wide uppercase">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Yeni Nesil Finans
+            </div>
+
+            <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white">
+                Harcamalarınızı Yönetmenin <br />
+                <span class="text-emerald-500">En Akıllı Yolu: Quantly</span>
+            </h1>
+
+            <p class="text-lg text-neutral-400 max-w-xl mx-auto leading-relaxed">
+                Fişlerinizi tarayın, harcamalarınızı otomatik kategorize edin. Finansal özgürlüğünüzü karmaşık
+                tablolarla uğraşmadan geri kazanın.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <button
+                    class="flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-neutral-200 transition-all hover:scale-105 shadow-lg shadow-white/5 group">
+                    <span class="text-2xl"></span>
+                    <div class="text-left leading-tight">
+                        <div class="text-[10px] font-medium uppercase text-neutral-500">Download on the</div>
+                        <div class="text-sm">App Store</div>
+                    </div>
+                </button>
+                <button
+                    class="flex items-center justify-center gap-3 bg-neutral-900 text-white border border-neutral-800 px-8 py-4 rounded-xl font-bold hover:bg-neutral-800 transition-all hover:scale-105 group">
+                    <span class="text-2xl">▶</span>
+                    <div class="text-left leading-tight">
+                        <div class="text-[10px] font-medium uppercase text-neutral-400">Get it on</div>
+                        <div class="text-sm">Google Play</div>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Phone & Orbiting Features -->
+        <div class="relative w-full max-w-[1200px] flex justify-center items-center mt-8">
+            <!-- Orbits -->
+            <div
+                class="absolute w-[600px] h-[600px] border border-neutral-800/60 rounded-full animate-[spin_60s_linear_infinite] hidden lg:block">
+            </div>
+            <div
+                class="absolute w-[800px] h-[800px] border border-neutral-800/40 rounded-full animate-[spin_40s_linear_infinite] hidden lg:block">
+            </div>
+
+            <!-- Phone Mockup -->
+            <div
+                class="relative w-[300px] h-[600px] bg-black rounded-[3rem] border-8 border-neutral-800 shadow-2xl shadow-emerald-900/40 overflow-hidden z-10 mx-auto">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-neutral-900 rounded-b-2xl z-20"></div>
+
+                <div class="w-full h-full bg-neutral-950 flex flex-col pt-12 px-4 relative">
+                    <!-- Phone Header -->
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <div class="text-neutral-500 text-xs">Toplam Bakiye</div>
+                            <div class="text-white text-2xl font-bold">₺14,250.00</div>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center border border-neutral-800">
+                            <i data-lucide="wallet" class="w-5 h-5 text-emerald-500"></i>
+                        </div>
+                    </div>
+
+                    <!-- Chart Simulation -->
+                    <div class="h-32 w-full mb-6 flex items-end justify-between px-2 gap-2">
+                        <div class="w-full bg-emerald-500 rounded-t-sm opacity-40" style="height: 40%"></div>
+                        <div class="w-full bg-emerald-500 rounded-t-sm opacity-40" style="height: 65%"></div>
+                        <div class="w-full bg-emerald-500 rounded-t-sm opacity-40" style="height: 30%"></div>
+                        <div class="w-full bg-emerald-500 rounded-t-sm opacity-40" style="height: 85%"></div>
+                        <div class="w-full bg-emerald-500 rounded-t-sm opacity-40" style="height: 50%"></div>
+                        <div class="w-full bg-emerald-500 rounded-t-sm opacity-100" style="height: 90%"></div>
+                        <div class="w-full bg-emerald-500 rounded-t-sm opacity-40" style="height: 60%"></div>
+                    </div>
+
+                    <!-- List -->
+                    <div class="flex-1 space-y-4 overflow-hidden px-1">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-white">Son İşlemler</span>
+                            <span class="text-xs text-emerald-500 cursor-pointer">Tümü</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-neutral-900 border border-neutral-800">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-lg">
+                                        🎬</div>
+                                    <div>
+                                        <div class="text-sm font-medium text-white">Netflix</div>
+                                        <div class="text-[10px] text-neutral-500">Eğlence & Abonelik</div>
+                                    </div>
+                                </div>
+                                <div class="text-sm font-bold text-white">-₺149.99</div>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-3 rounded-xl bg-neutral-900 border border-neutral-800">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center text-lg">
+                                        ☕</div>
+                                    <div>
+                                        <div class="text-sm font-medium text-white">Starbucks</div>
+                                        <div class="text-[10px] text-neutral-500">Yeme & İçme</div>
+                                    </div>
+                                </div>
+                                <div class="text-sm font-bold text-white">-₺84.50</div>
+                            </div>
+                        </div>
+                        <div
+                            class="mt-4 bg-neutral-900 border border-emerald-500/30 p-3 rounded-xl flex items-center gap-3 relative overflow-hidden">
+                            <div class="absolute left-0 top-0 h-full w-1 bg-emerald-500"></div>
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                                <i data-lucide="scan" class="w-4 h-4 text-emerald-500"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-emerald-500 uppercase font-bold">Yeni Fiş Tarandı</div>
+                                <div class="text-xs font-bold text-white">Migros - ₺342.90</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Nav -->
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-16 bg-neutral-950/90 backdrop-blur border-t border-neutral-800 flex justify-around items-center px-2">
+                        <div class="text-emerald-500"><i data-lucide="credit-card" size="20"></i></div>
+                        <div class="text-neutral-600"><i data-lucide="bar-chart-3" size="20"></i></div>
+                        <div
+                            class="w-12 h-12 -mt-8 bg-emerald-500 rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/20 text-black font-bold text-xl border-4 border-neutral-950">
+                            +</div>
+                        <div class="text-neutral-600"><i data-lucide="scan" size="20"></i></div>
+                        <div class="text-neutral-600">
+                            <div class="w-5 h-5 rounded-full bg-neutral-800 border border-neutral-700"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Features (Static HTML conversion) -->
+            <!-- Left Side -->
+            <div class="absolute hidden lg:flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md border border-neutral-800 py-3 px-5 rounded-2xl shadow-2xl hover:border-emerald-500/50 hover:shadow-emerald-500/20 hover:-translate-y-1 transition-all duration-300 z-20 top-10 left-[10%] lg:left-[15%] xl:left-[22%]"
+                style="animation: float 6s ease-in-out infinite; animation-delay: 0s">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                    <i data-lucide="scan" class="w-5 h-5 text-emerald-500"></i>
+                </div>
+                <span class="font-semibold text-white text-sm whitespace-nowrap tracking-wide">Belge Tarama</span>
+            </div>
+
+            <div class="absolute hidden lg:flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md border border-neutral-800 py-3 px-5 rounded-2xl shadow-2xl hover:border-emerald-500/50 hover:shadow-emerald-500/20 hover:-translate-y-1 transition-all duration-300 z-20 top-[45%] left-[2%] lg:left-[8%] xl:left-[15%]"
+                style="animation: float 6s ease-in-out infinite; animation-delay: 1.5s">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                    <i data-lucide="calendar-clock" class="w-5 h-5 text-emerald-500"></i>
+                </div>
+                <span class="font-semibold text-white text-sm whitespace-nowrap tracking-wide">Planlı Harcamalar</span>
+            </div>
+
+            <div class="absolute hidden lg:flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md border border-neutral-800 py-3 px-5 rounded-2xl shadow-2xl hover:border-emerald-500/50 hover:shadow-emerald-500/20 hover:-translate-y-1 transition-all duration-300 z-20 bottom-20 left-[10%] lg:left-[15%] xl:left-[22%]"
+                style="animation: float 6s ease-in-out infinite; animation-delay: 3s">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                    <i data-lucide="refresh-cw" class="w-5 h-5 text-emerald-500"></i>
+                </div>
+                <span class="font-semibold text-white text-sm whitespace-nowrap tracking-wide">Abonelikler</span>
+            </div>
+
+            <!-- Right Side -->
+            <div class="absolute hidden lg:flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md border border-neutral-800 py-3 px-5 rounded-2xl shadow-2xl hover:border-emerald-500/50 hover:shadow-emerald-500/20 hover:-translate-y-1 transition-all duration-300 z-20 top-10 right-[10%] lg:right-[15%] xl:right-[22%]"
+                style="animation: float 6s ease-in-out infinite; animation-delay: 0.5s">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                    <i data-lucide="credit-card" class="w-5 h-5 text-emerald-500"></i>
+                </div>
+                <span class="font-semibold text-white text-sm whitespace-nowrap tracking-wide">Taksit Takibi</span>
+            </div>
+
+            <div class="absolute hidden lg:flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md border border-neutral-800 py-3 px-5 rounded-2xl shadow-2xl hover:border-emerald-500/50 hover:shadow-emerald-500/20 hover:-translate-y-1 transition-all duration-300 z-20 top-[45%] right-[2%] lg:right-[8%] xl:right-[15%]"
+                style="animation: float 6s ease-in-out infinite; animation-delay: 2s">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                    <i data-lucide="wallet" class="w-5 h-5 text-emerald-500"></i>
+                </div>
+                <span class="font-semibold text-white text-sm whitespace-nowrap tracking-wide">Bütçe Takibi</span>
+            </div>
+
+            <div class="absolute hidden lg:flex items-center gap-3 bg-neutral-900/90 backdrop-blur-md border border-neutral-800 py-3 px-5 rounded-2xl shadow-2xl hover:border-emerald-500/50 hover:shadow-emerald-500/20 hover:-translate-y-1 transition-all duration-300 z-20 bottom-20 right-[10%] lg:right-[15%] xl:right-[22%]"
+                style="animation: float 6s ease-in-out infinite; animation-delay: 4s">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                    <i data-lucide="bar-chart-3" class="w-5 h-5 text-emerald-500"></i>
+                </div>
+                <span class="font-semibold text-white text-sm whitespace-nowrap tracking-wide">Anlamlı Grafikler</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="py-24 px-6 bg-neutral-950 relative overflow-hidden border-t border-neutral-900">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-emerald-900/10 rounded-full blur-[120px] -z-10">
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Quantly'yi <span class="text-emerald-500">Aksiyon Halinde Görün</span>
+                </h2>
+                <p class="text-neutral-400 max-w-2xl mx-auto">
+                    Akıllı fiş tarama, anlık analizler ve yapay zeka öngörüleriyle finansal yönetim deneyimini yeniden
+                    tanımlıyoruz.
+                </p>
+            </div>
+
+            <!-- Video Player -->
+            <div id="video-container"
+                class="relative rounded-2xl overflow-hidden border border-neutral-800 shadow-[0_0_60px_rgba(16,185,129,0.1)] group bg-black aspect-video mb-8">
+                <video id="demo-video" class="w-full h-full object-cover"
+                    poster="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=2000"
+                    playsinline>
+                    <source
+                        src="https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-laptop-keyboard-close-up-1744-large.mp4"
+                        type="video/mp4" />
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
+
+                <!-- Big Play Button Overlay -->
+                <div id="big-play-btn"
+                    class="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300 cursor-pointer z-10">
+                    <div
+                        class="w-16 h-16 rounded-full bg-emerald-500/90 flex items-center justify-center backdrop-blur-sm shadow-xl hover:scale-110 transition-transform">
+                        <i data-lucide="play" class="w-6 h-6 text-black fill-current ml-1"></i>
+                    </div>
+                </div>
+
+                <!-- Custom Controls -->
+                <div id="controls-bar"
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent px-4 py-4 transition-opacity duration-300 opacity-100 z-20">
+
+                    <!-- Progress Bar -->
+                    <div class="group/progress relative w-full h-4 mb-2 cursor-pointer flex items-center">
+                        <div
+                            class="absolute left-0 right-0 h-1 bg-neutral-600/50 rounded-full overflow-hidden backdrop-blur-sm pointer-events-none">
+                            <div id="progress-fill" class="h-full bg-emerald-500 rounded-full relative w-0"></div>
+                        </div>
+                        <input id="progress-range" type="range" min="0" max="100" value="0" step="0.1"
+                            class="absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer">
+                    </div>
+
+                    <div class="flex items-center justify-between text-white">
+                        <div class="flex items-center gap-4">
+                            <button id="play-pause-btn" class="hover:text-emerald-500 transition-colors">
+                                <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                            </button>
+
+                            <div class="flex items-center gap-2 group/volume">
+                                <button id="mute-btn" class="hover:text-emerald-500 transition-colors">
+                                    <i data-lucide="volume-2" class="w-5 h-5"></i>
+                                </button>
+                                <input id="volume-range" type="range" min="0" max="1" step="0.05" value="1"
+                                    class="volume-slider w-0 overflow-hidden group-hover/volume:w-20 transition-all duration-300 h-1 accent-emerald-500 bg-neutral-700 rounded-lg cursor-pointer">
+                            </div>
+
+                            <div class="text-xs font-medium text-neutral-400 font-mono">
+                                <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+                            </div>
+                        </div>
+
+                        <button id="fullscreen-btn" class="hover:text-emerald-500 transition-colors">
+                            <i data-lucide="maximize-2" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Decorative Corners -->
+                <div
+                    class="absolute top-0 left-0 w-16 h-16 border-l-2 border-t-2 border-emerald-500/30 rounded-tl-2xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-emerald-500/30 rounded-br-2xl pointer-events-none">
+                </div>
+            </div>
+
+            <!-- Transcript Section -->
+            <div class="flex flex-col items-center">
+                <button id="transcript-toggle"
+                    class="group flex items-center gap-2 text-sm font-medium text-emerald-500 hover:text-emerald-400 transition-colors px-4 py-2 rounded-full hover:bg-emerald-500/10 border border-transparent hover:border-emerald-500/20">
+                    <span id="transcript-btn-text">Video Transkriptini Oku</span>
+                    <i id="transcript-icon" data-lucide="chevron-right"
+                        class="w-4 h-4 transition-transform duration-300"></i>
+                </button>
+
+                <div id="transcript-content"
+                    class="hidden w-full mt-6 bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 md:p-8 text-left animate-fade-in-up">
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-wider flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        Video Akışı
+                    </h4>
+                    <div
+                        class="space-y-4 text-neutral-400 text-sm leading-relaxed border-l-2 border-neutral-800 pl-4 md:pl-6 ml-1">
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[33px] md:-left-[41px] top-1 w-3 h-3 rounded-full bg-neutral-800 border-2 border-black"></span>
+                            <p><span class="text-emerald-500 font-mono font-bold mr-2">0:00</span> Kullanıcı Quantly
+                                uygulamasını açar, güvenli giriş yapar.</p>
+                        </div>
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[33px] md:-left-[41px] top-1 w-3 h-3 rounded-full bg-neutral-800 border-2 border-black"></span>
+                            <p><span class="text-emerald-500 font-mono font-bold mr-2">0:05</span> Ana ekran
+                                görüntülenir: Toplam varlıklar ve son harcamalar özetlenir.</p>
+                        </div>
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[33px] md:-left-[41px] top-1 w-3 h-3 rounded-full bg-emerald-500 border-2 border-black shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
+                            <p class="text-white"><span class="text-emerald-500 font-mono font-bold mr-2">0:12</span>
+                                'Belge Tara' butonuna tıklanır. Kamera açılır ve bir restoran fişi taranır.</p>
+                        </div>
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[33px] md:-left-[41px] top-1 w-3 h-3 rounded-full bg-neutral-800 border-2 border-black"></span>
+                            <p><span class="text-emerald-500 font-mono font-bold mr-2">0:18</span> Yapay zeka fişi
+                                işler: Tarih, toplam tutar ve kategori (Yeme & İçme) otomatik belirlenir.</p>
+                        </div>
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[33px] md:-left-[41px] top-1 w-3 h-3 rounded-full bg-neutral-800 border-2 border-black"></span>
+                            <p><span class="text-emerald-500 font-mono font-bold mr-2">0:25</span> Anlık bildirim: "Bu
+                                ay restoran harcamalarınız bütçenizin %70'ine ulaştı."</p>
+                        </div>
+                        <div class="relative">
+                            <span
+                                class="absolute -left-[33px] md:-left-[41px] top-1 w-3 h-3 rounded-full bg-neutral-800 border-2 border-black"></span>
+                            <p><span class="text-emerald-500 font-mono font-bold mr-2">0:32</span> Analiz ekranında
+                                aylık harcama dağılımı grafiklerle incelenir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="ozellikler" class="py-32 px-6 bg-black relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Neden <span
+                        class="text-emerald-500">Quantly?</span></h2>
+                <p class="text-neutral-400 max-w-2xl mx-auto text-lg">Finansal alışkanlıklarınızı değiştirecek
+                    özelliklerle tanışın.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-2 bg-neutral-900/50 border-neutral-800 h-full">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <i data-lucide="scan" class="w-7 h-7 text-emerald-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Belge & Fiş Tarama</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">Fiş ve faturalarınızı saniyeler içinde tarayıp
+                        dijitalleştirin. Kaybolan fiş derdine son.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-2 bg-neutral-900/50 border-neutral-800 h-full">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <i data-lucide="calendar-clock" class="w-7 h-7 text-emerald-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Planlı Harcamalar</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">Gelecek ödemelerinizi ve faturalarınızı önceden
+                        planlayın, son ödeme tarihlerini kaçırmayın.</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-2 bg-neutral-900/50 border-neutral-800 h-full">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <i data-lucide="refresh-cw" class="w-7 h-7 text-emerald-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Abonelik Yönetimi</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">Netflix, Spotify gibi düzenli ödemelerinizi tek
+                        bir yerden takip edin ve gereksizleri iptal edin.</p>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-2 bg-neutral-900/50 border-neutral-800 h-full">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <i data-lucide="credit-card" class="w-7 h-7 text-emerald-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Taksit Takibi</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">Kredi kartı taksitlerinizi ve kalan borçlarınızı
+                        kolayca izleyin, bütçenizi ona göre ayarlayın.</p>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-2 bg-neutral-900/50 border-neutral-800 h-full">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <i data-lucide="wallet" class="w-7 h-7 text-emerald-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Bütçe Takibi</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">Harcama limitleri belirleyin, kategori bazlı
+                        bütçeler oluşturun ve hedeflerinize ulaşın.</p>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="glass-card p-8 rounded-3xl hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-2 bg-neutral-900/50 border-neutral-800 h-full">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <i data-lucide="bar-chart-3" class="w-7 h-7 text-emerald-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Anlamlı Grafikler</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm">Paranızın nereye gittiğini detaylı ve anlaşılır
+                        grafiklerle analiz ederek tasarruf fırsatlarını görün.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="nasil-calisir" class="py-32 px-6 bg-neutral-950 border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Nasıl Çalışır?</h2>
+                <p class="text-neutral-400">3 basit adımda finansal hayatınızı düzene sokun.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <!-- Connecting Line -->
+                <div
+                    class="hidden md:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent -z-0">
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-full bg-black border-4 border-neutral-800 flex items-center justify-center text-3xl font-bold text-neutral-500 mb-8 group-hover:border-emerald-500 group-hover:text-emerald-500 transition-all shadow-xl">
+                        1</div>
+                    <h3 class="text-xl font-bold text-white mb-3">İndir ve Üye Ol</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs">Uygulamayı mağazadan ücretsiz indir ve
+                        saniyeler içinde hesabını oluştur.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-full bg-black border-4 border-neutral-800 flex items-center justify-center text-3xl font-bold text-neutral-500 mb-8 group-hover:border-emerald-500 group-hover:text-emerald-500 transition-all shadow-xl">
+                        2</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Harcamanı Ekle</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs">İster manuel ekle, ister fişinin
+                        fotoğrafını çek. Yapay zeka gerisini halletsin.</p>
+                </div>
+
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-full bg-black border-4 border-neutral-800 flex items-center justify-center text-3xl font-bold text-neutral-500 mb-8 group-hover:border-emerald-500 group-hover:text-emerald-500 transition-all shadow-xl">
+                        3</div>
+                    <h3 class="text-xl font-bold text-white mb-3">Kontrolü Ele Al</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs">Bütçeni aşma, tasarruf hedeflerine ulaş
+                        ve finansal özgürlüğün tadını çıkar.</p>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center">
+                <button
+                    class="gradient-btn px-10 py-4 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-emerald-500/20 transition-all hover:-translate-y-1 inline-flex items-center gap-2">
+                    Hemen Başla <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-black border-t border-neutral-900 text-sm text-neutral-600">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center text-black text-xs font-bold">
+                    Q</div>
+                <span class="text-neutral-200 font-semibold">Quantly</span>
+            </div>
+
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-emerald-500 transition-colors">Gizlilik Politikası</a>
+                <a href="#" class="hover:text-emerald-500 transition-colors">Kullanım Şartları</a>
+                <a href="mailto:support@quantlyapp.com" class="hover:text-emerald-500 transition-colors">İletişim</a>
+            </div>
+
+            <div>
+                © 2026 Quantly. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // --- Navbar Logic ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('glass-nav', 'py-4');
+                navbar.classList.remove('bg-transparent', 'py-6');
+            } else {
+                navbar.classList.remove('glass-nav', 'py-4');
+                navbar.classList.add('bg-transparent', 'py-6');
+            }
+        });
+
+        // --- Video Player Logic ---
+        const video = document.getElementById('demo-video');
+        const playBtn = document.getElementById('play-pause-btn');
+        const bigPlayBtn = document.getElementById('big-play-btn');
+        const progressRange = document.getElementById('progress-range');
+        const progressFill = document.getElementById('progress-fill');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const volumeRange = document.getElementById('volume-range');
+        const muteBtn = document.getElementById('mute-btn');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const controlsBar = document.getElementById('controls-bar');
+
+        let isScrubbing = false;
+
+        // Play/Pause Toggle
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+                updatePlayIcons(true);
+            } else {
+                video.pause();
+                updatePlayIcons(false);
+            }
+        }
+
+        function updatePlayIcons(isPlaying) {
+            const icon = isPlaying ? 'pause' : 'play';
+            // Update small button
+            playBtn.innerHTML = `<i data-lucide="${icon}" class="w-5 h-5 fill-current"></i>`;
+            lucide.createIcons();
+
+            // Update big button visibility
+            if (isPlaying) {
+                bigPlayBtn.classList.add('opacity-0', 'pointer-events-none');
+                controlsBar.classList.add('opacity-0');
+                // Show controls only on hover of container (handled by CSS hover usually, but let's do JS for simplicity if needed or rely on group-hover logic in Tailwind)
+                // The HTML has group-hover:opacity-100 on the controls div parent group, let's fix that structure.
+                // Actually, let's just make the controls disappear when playing unless hovered.
+                // The current CSS handles opacity-100 normally, let's trust the Tailwind classes:
+                // We toggle 'opacity-0 group-hover:opacity-100' class.
+                controlsBar.classList.remove('opacity-100');
+                controlsBar.classList.add('opacity-0', 'group-hover:opacity-100');
+
+            } else {
+                bigPlayBtn.classList.remove('opacity-0', 'pointer-events-none');
+                controlsBar.classList.remove('opacity-0', 'group-hover:opacity-100');
+                controlsBar.classList.add('opacity-100');
+            }
+        }
+
+        playBtn.addEventListener('click', togglePlay);
+        bigPlayBtn.addEventListener('click', togglePlay);
+        video.addEventListener('click', togglePlay);
+        video.addEventListener('ended', () => updatePlayIcons(false));
+
+        // Time Update
+        function formatTime(time) {
+            const minutes = Math.floor(time / 60);
+            const seconds = Math.floor(time % 60);
+            return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        video.addEventListener('loadedmetadata', () => {
+            durationEl.textContent = formatTime(video.duration);
+        });
+
+        video.addEventListener('timeupdate', () => {
+            if (!isScrubbing) {
+                const percent = (video.currentTime / video.duration) * 100;
+                progressRange.value = percent;
+                progressFill.style.width = `${percent}%`;
+                currentTimeEl.textContent = formatTime(video.currentTime);
+            }
+        });
+
+        // Scrubbing
+        progressRange.addEventListener('input', (e) => {
+            const val = e.target.value;
+            progressFill.style.width = `${val}%`;
+            // If dragging, we can optionally update the time text immediately
+            const time = (val / 100) * video.duration;
+            currentTimeEl.textContent = formatTime(time);
+        });
+
+        // Logic to stop updates while dragging
+        progressRange.addEventListener('mousedown', () => isScrubbing = true);
+        progressRange.addEventListener('touchstart', () => isScrubbing = true);
+
+        // Logic to seek on release or change
+        const seek = (e) => {
+            isScrubbing = false;
+            const val = e.target.value;
+            video.currentTime = (val / 100) * video.duration;
+        };
+        progressRange.addEventListener('change', seek);
+        progressRange.addEventListener('mouseup', () => isScrubbing = false);
+        progressRange.addEventListener('touchend', () => isScrubbing = false);
+
+        // Volume
+        volumeRange.addEventListener('input', (e) => {
+            video.volume = e.target.value;
+            updateVolumeIcon(e.target.value);
+        });
+
+        function updateVolumeIcon(vol) {
+            let icon = 'volume-2';
+            if (vol == 0) icon = 'volume-x';
+            else if (vol < 0.5) icon = 'volume-1';
+
+            muteBtn.innerHTML = `<i data-lucide="${icon}" class="w-5 h-5"></i>`;
+            lucide.createIcons();
+        }
+
+        muteBtn.addEventListener('click', () => {
+            if (video.volume > 0) {
+                video.dataset.lastVol = video.volume;
+                video.volume = 0;
+                volumeRange.value = 0;
+                updateVolumeIcon(0);
+            } else {
+                const last = video.dataset.lastVol || 1;
+                video.volume = last;
+                volumeRange.value = last;
+                updateVolumeIcon(last);
+            }
+        });
+
+        // Fullscreen
+        fullscreenBtn.addEventListener('click', () => {
+            if (video.requestFullscreen) video.requestFullscreen();
+            else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+        });
+
+        // --- Transcript Logic ---
+        const tToggle = document.getElementById('transcript-toggle');
+        const tContent = document.getElementById('transcript-content');
+        const tIcon = document.getElementById('transcript-icon');
+        const tText = document.getElementById('transcript-btn-text');
+
+        tToggle.addEventListener('click', () => {
+            const isHidden = tContent.classList.contains('hidden');
+            if (isHidden) {
+                tContent.classList.remove('hidden');
+                tText.textContent = "Transkripti Gizle";
+                tIcon.classList.add('rotate-90');
+            } else {
+                tContent.classList.add('hidden');
+                tText.textContent = "Video Transkriptini Oku";
+                tIcon.classList.remove('rotate-90');
+            }
+        });
+
+    </script>
 </body>
 
 </html>
