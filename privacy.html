@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Quantly</title>
+    <meta name="description"
+        content="Quantly uygulamasının gizlilik politikası. Kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu öğrenin.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #f5f5f5;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-emerald-500/30 selection:text-white">
+    <!-- Background Glow -->
+    <div
+        class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-900/10 rounded-full blur-[120px] -z-10">
+    </div>
+
+    <!-- Header -->
+    <header
+        class="relative bg-gradient-to-b from-neutral-950 via-black to-black border-b border-neutral-900 py-12 md:py-20 overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-900/20 rounded-full blur-[100px] -z-10"></div>
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <a href="index.html"
+                class="inline-flex items-center gap-2 text-emerald-500 hover:text-emerald-400 transition-all duration-300 mb-8 group">
+                <i data-lucide="arrow-left" class="w-5 h-5 group-hover:-translate-x-1 transition-transform"></i>
+                <span class="font-semibold">Ana Sayfaya Dön</span>
+            </a>
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-emerald-400 text-xs font-semibold tracking-wide uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Gizlilik & Güvenlik
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Gizlilik <span
+                    class="text-emerald-500">Politikası</span></h1>
+            <p class="text-neutral-400 text-lg">Verileriniz bizim için değerlidir. İşte nasıl koruyoruz.</p>
+            <p class="text-neutral-500 text-sm mt-3 flex items-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                Son Güncelleme: 26 Ocak 2026
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+        <!-- Table of Contents -->
+        <div
+            class="glass-card rounded-3xl p-8 md:p-10 mb-16 hover:border-emerald-500/30 transition-all duration-300 shadow-2xl">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
+                    <i data-lucide="list" class="w-6 h-6 text-emerald-500"></i>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">İçindekiler</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="#giris"
+                    class="glass-card p-4 rounded-xl text-neutral-400 hover:text-emerald-500 hover:border-emerald-500/50 transition-all duration-200 group flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-neutral-800 group-hover:bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 transition-colors">1</span>
+                    <span class="font-medium">Giriş</span>
+                </a>
+                <a href="#toplanan-bilgiler"
+                    class="glass-card p-4 rounded-xl text-neutral-400 hover:text-emerald-500 hover:border-emerald-500/50 transition-all duration-200 group flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-neutral-800 group-hover:bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 transition-colors">2</span>
+                    <span class="font-medium">Topladığımız Bilgiler</span>
+                </a>
+                <a href="#kullanim-amaci"
+                    class="glass-card p-4 rounded-xl text-neutral-400 hover:text-emerald-500 hover:border-emerald-500/50 transition-all duration-200 group flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-neutral-800 group-hover:bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 transition-colors">3</span>
+                    <span class="font-medium">Kullanım Amacı</span>
+                </a>
+                <a href="#veri-paylasimi"
+                    class="glass-card p-4 rounded-xl text-neutral-400 hover:text-emerald-500 hover:border-emerald-500/50 transition-all duration-200 group flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-neutral-800 group-hover:bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 transition-colors">4</span>
+                    <span class="font-medium">Veri Paylaşımı</span>
+                </a>
+                <a href="#kamera-galeri"
+                    class="glass-card p-4 rounded-xl text-neutral-400 hover:text-emerald-500 hover:border-emerald-500/50 transition-all duration-200 group flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-neutral-800 group-hover:bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 transition-colors">5</span>
+                    <span class="font-medium">Kamera & Galeri</span>
+                </a>
+                <a href="#veri-guvenligi"
+                    class="glass-card p-4 rounded-xl text-neutral-400 hover:text-emerald-500 hover:border-emerald-500/50 transition-all duration-200 group flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-neutral-800 group-hover:bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 transition-colors">6</span>
+                    <span class="font-medium">Veri Güvenliği</span>
+                </a>
+                <a href="#veri-saklama"
+                    class="glass-card p-4 rounded-xl text-neutral-400 hover:text-emerald-500 hover:border-emerald-500/50 transition-all duration-200 group flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-neutral-800 group-hover:bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 transition-colors">7</span>
+                    <span class="font-medium">Veri Saklama & Silme</span>
+                </a>
+                <a href="#cocuk-gizliligi"
+                    class="glass-card p-4 rounded-xl text-neutral-400 hover:text-emerald-500 hover:border-emerald-500/50 transition-all duration-200 group flex items-center gap-3">
+                    <span
+                        class="w-8 h-8 rounded-lg bg-neutral-800 group-hover:bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 transition-colors">8</span>
+                    <span class="font-medium">Çocukların Gizliliği</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="space-y-16">
+            <!-- Section 1 -->
+            <section id="giris" class="scroll-mt-24">
+                <div class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="info" class="w-7 h-7 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Giriş</h2>
+                            <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 text-lg leading-relaxed">Bu Gizlilik Politikası, <strong
+                            class="text-emerald-500">Quantly</strong> ("Uygulama") tarafından sunulan hizmetleri
+                        kullandığınızda kişisel verilerinizin nasıl toplandığını, kullanıldığını, saklandığını ve
+                        korunduğunu açıklar. Uygulamamızı kullanarak, bu politikada belirtilen veri uygulamalarını kabul
+                        etmiş olursunuz.</p>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section id="toplanan-bilgiler" class="scroll-mt-24">
+                <div class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="database" class="w-7 h-7 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Topladığımız Bilgiler</h2>
+                            <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 text-lg leading-relaxed mb-8">Size daha iyi bir harcama takibi ve fiş
+                        analizi deneyimi sunabilmek için aşağıdaki verileri işlemekteyiz:</p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div
+                            class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-emerald-500/30 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                                <i data-lucide="user" class="w-6 h-6 text-emerald-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Kişisel Kimlik Bilgileri</h3>
+                            <p class="text-neutral-400 leading-relaxed text-sm">E-posta adresiniz ve adınız/kullanıcı
+                                adınız hesap oluşturma ve doğrulama için toplanır.</p>
+                        </div>
+
+                        <div
+                            class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-emerald-500/30 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                                <i data-lucide="receipt" class="w-6 h-6 text-emerald-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Finansal Bilgiler</h3>
+                            <p class="text-neutral-400 leading-relaxed text-sm">Fişler, faturalar ve finansal veriler
+                                (mağaza, tarih, tutar, ürünler) harcama takibi için işlenir.</p>
+                        </div>
+
+                        <div
+                            class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-emerald-500/30 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                                <i data-lucide="camera" class="w-6 h-6 text-emerald-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Fotoğraflar & Medya</h3>
+                            <p class="text-neutral-400 leading-relaxed text-sm">Kamera ve galeri erişimi fiş tarama için
+                                kullanılır. Görseller sadece analiz amacıyla yüklenir.</p>
+                        </div>
+
+                        <div
+                            class="bg-neutral-900/50 border border-neutral-800 rounded-2xl p-6 hover:border-emerald-500/30 transition-all duration-300">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+                                <i data-lucide="smartphone" class="w-6 h-6 text-emerald-500"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Cihaz Verileri</h3>
+                            <p class="text-neutral-400 leading-relaxed text-sm">IP adresi, cihaz modeli, işletim sistemi
+                                ve performans verileri hizmet kalitesi için toplanır.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section id="kullanim-amaci" class="scroll-mt-24">
+                <div class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="target" class="w-7 h-7 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Kullanım Amacı</h2>
+                            <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 text-lg leading-relaxed mb-6">Topladığımız verileri aşağıdaki amaçlarla
+                        kullanırız:</p>
+                    <div class="space-y-4">
+                        <div
+                            class="flex gap-4 items-start bg-neutral-900/30 p-5 rounded-xl border border-neutral-800/50">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="scan" class="w-5 h-5 text-emerald-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Hizmetin Sağlanması</h4>
+                                <p class="text-neutral-400 text-sm">Fişlerinizi taramak, AI ile analiz etmek ve
+                                    harcamalarınızı kategorize etmek.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex gap-4 items-start bg-neutral-900/30 p-5 rounded-xl border border-neutral-800/50">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="user-cog" class="w-5 h-5 text-emerald-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Hesap Yönetimi</h4>
+                                <p class="text-neutral-400 text-sm">Kullanıcı kaydı oluşturma, oturum yönetimi ve
+                                    cihazlar arası senkronizasyon.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex gap-4 items-start bg-neutral-900/30 p-5 rounded-xl border border-neutral-800/50">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="headphones" class="w-5 h-5 text-emerald-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Müşteri Desteği</h4>
+                                <p class="text-neutral-400 text-sm">Teknik sorunları çözme ve taleplerinizi yanıtlama.
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex gap-4 items-start bg-neutral-900/30 p-5 rounded-xl border border-neutral-800/50">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="trending-up" class="w-5 h-5 text-emerald-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Analiz & İyileştirme</h4>
+                                <p class="text-neutral-400 text-sm">Uygulama kullanımını anlama ve kullanıcı deneyimini
+                                    geliştirme.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section id="veri-paylasimi" class="scroll-mt-24">
+                <div class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="share-2" class="w-7 h-7 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Veri Paylaşımı</h2>
+                            <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5 mb-8">
+                        <p class="text-emerald-300 font-medium flex items-center gap-2">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            Kişisel verilerinizi pazarlama amacıyla satmayız.
+                        </p>
+                    </div>
+                    <p class="text-neutral-400 text-lg leading-relaxed mb-6">Uygulamanın çalışabilmesi için güvenilir
+                        servis sağlayıcıları ile veri paylaşımı yapabiliriz:</p>
+
+                    <div class="space-y-4">
+                        <div class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i data-lucide="database" class="w-5 h-5 text-emerald-500"></i>
+                                <h3 class="text-lg font-bold text-white">Veritabanı & Kimlik Doğrulama</h3>
+                            </div>
+                            <p class="text-neutral-400 text-sm">Bulut tabanlı veritabanı hizmetleri (Supabase/Firebase)
+                                güvenli veri saklama için kullanılır.</p>
+                        </div>
+
+                        <div class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i data-lucide="brain" class="w-5 h-5 text-emerald-500"></i>
+                                <h3 class="text-lg font-bold text-white">Yapay Zeka (AI) İşleme</h3>
+                            </div>
+                            <p class="text-neutral-400 text-sm">Fiş görselleri, metin işleme ve görüntü tanıma
+                                servisleri (Google Cloud Vision, Gemini API) ile işlenir.</p>
+                        </div>
+
+                        <div class="bg-neutral-900/50 border border-neutral-800 rounded-xl p-6">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i data-lucide="bar-chart" class="w-5 h-5 text-emerald-500"></i>
+                                <h3 class="text-lg font-bold text-white">Analitik Araçlar</h3>
+                            </div>
+                            <p class="text-neutral-400 text-sm">Google Analytics for Firebase veya benzeri araçlar
+                                performans izleme için kullanılabilir.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section id="kamera-galeri" class="scroll-mt-24">
+                <div class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="camera" class="w-7 h-7 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Kamera & Galeri</h2>
+                            <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 text-lg leading-relaxed">Quantly, fiş ve faturalarınızı tarayabilmeniz
+                        için cihazınızın <strong class="text-white">kamerasına</strong> ve <strong
+                            class="text-white">galerisine erişim</strong> ister. Bu izinler sadece sizin kontrolünüzde,
+                        fiş yükleme işlemi sırasında kullanılır.</p>
+                </div>
+            </section>
+
+            <!-- Section 6 -->
+            <section id="veri-guvenligi" class="scroll-mt-24">
+                <div class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="shield" class="w-7 h-7 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Veri Güvenliği</h2>
+                            <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 text-lg leading-relaxed mb-6">Verilerinizin güvenliği bizim için
+                        önceliktir.</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div
+                            class="bg-neutral-900/30 border border-neutral-800/50 rounded-xl p-5 flex items-center gap-4">
+                            <i data-lucide="lock" class="w-8 h-8 text-emerald-500 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">HTTPS/SSL Şifreleme</h4>
+                                <p class="text-neutral-400 text-sm">Tüm veri iletimi şifrelenir</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-neutral-900/30 border border-neutral-800/50 rounded-xl p-5 flex items-center gap-4">
+                            <i data-lucide="server" class="w-8 h-8 text-emerald-500 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Güvenli Sunucular</h4>
+                                <p class="text-neutral-400 text-sm">Veriler korumalı ortamda saklanır</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7 -->
+            <section id="veri-saklama" class="scroll-mt-24">
+                <div class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="trash-2" class="w-7 h-7 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Veri Saklama & Silme</h2>
+                            <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 text-lg leading-relaxed mb-6">Kullanıcı hesabınız aktif olduğu sürece
+                        verileriniz saklanır.</p>
+
+                    <div class="gradient-bg p-8 rounded-2xl shadow-xl shadow-emerald-500/20">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="user-x" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-bold text-xl mb-2">Hesap Silme Hakkınız</h3>
+                                <p class="text-white/90 leading-relaxed">Dilediğiniz zaman <strong>Ayarlar > Hesabımı
+                                        Sil</strong> seçeneğini kullanarak veya bizimle iletişime geçerek hesabınızı ve
+                                    tüm verilerinizi (fişler, harcama geçmişi vb.) kalıcı olarak silebilirsiniz. Silme
+                                    talebiniz üzerine verileriniz sistemlerimizden derhal kaldırılır.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 8 -->
+            <section id="cocuk-gizliligi" class="scroll-mt-24">
+                <div class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="baby" class="w-7 h-7 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Çocukların Gizliliği</h2>
+                            <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                        </div>
+                    </div>
+                    <p class="text-neutral-400 text-lg leading-relaxed">Quantly, <strong class="text-white">13 yaşın
+                            altındaki</strong> bireylerin kullanımına yönelik değildir ve bilerek çocuklardan veri
+                        toplamaz.</p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="iletisim" class="scroll-mt-24">
+                <div class="gradient-bg rounded-3xl p-8 md:p-12 shadow-2xl shadow-emerald-500/20">
+                    <div class="flex items-start gap-4 mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="mail" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">İletişim</h2>
+                            <div class="w-20 h-1 bg-white/50 rounded-full"></div>
+                        </div>
+                    </div>
+                    <p class="text-white/90 text-lg leading-relaxed mb-8">Bu Gizlilik Politikası ile ilgili her türlü
+                        soru, görüş veya veri silme talepleriniz için bizimle iletişime geçebilirsiniz:</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+                                <h3 class="text-white font-bold text-lg">E-posta</h3>
+                            </div>
+                            <a href="mailto:support@quantlyapp.com"
+                                class="text-white/90 hover:text-white transition-colors text-lg">support@quantlyapp.com</a>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                            <div class="flex items-center gap-3 mb-3">
+                                <i data-lucide="globe" class="w-6 h-6 text-white"></i>
+                                <h3 class="text-white font-bold text-lg">Web Sitesi</h3>
+                            </div>
+                            <a href="https://www.quantlyapp.com"
+                                class="text-white/90 hover:text-white transition-colors text-lg">www.quantlyapp.com</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-black border-t border-neutral-900 text-sm text-neutral-600 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center text-black text-xs font-bold">
+                    Q</div>
+                <span class="text-neutral-200 font-semibold">Quantly</span>
+            </div>
+
+            <div class="flex gap-8">
+                <a href="privacy.html" class="hover:text-emerald-500 transition-colors">Gizlilik Politikası</a>
+                <a href="#" class="hover:text-emerald-500 transition-colors">Kullanım Şartları</a>
+                <a href="mailto:support@quantlyapp.com" class="hover:text-emerald-500 transition-colors">İletişim</a>
+            </div>
+
+            <div>
+                © 2026 Quantly. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="backToTop"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-black rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-all duration-300 opacity-0 invisible hover:scale-110">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </a>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
