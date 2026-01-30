@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth" id="html-root">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">Kullanım Koşulları - Quantly</title>
+    <meta name="description"
+        content="Quantly uygulamasının kullanım koşulları. Hizmet kullanımına ilişkin hüküm ve koşulları öğrenin.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #f5f5f5;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-emerald-500/30 selection:text-white">
+    <!-- Background Glow -->
+    <div
+        class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-900/10 rounded-full blur-[120px] -z-10">
+    </div>
+
+    <!-- Header -->
+    <header
+        class="relative bg-gradient-to-b from-neutral-950 via-black to-black border-b border-neutral-900 py-12 md:py-20 overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-900/20 rounded-full blur-[100px] -z-10"></div>
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+            <div class="flex items-center justify-between mb-8">
+                <a href="index.html"
+                    class="inline-flex items-center gap-2 text-emerald-500 hover:text-emerald-400 transition-all duration-300 group">
+                    <i data-lucide="arrow-left" class="w-5 h-5 group-hover:-translate-x-1 transition-transform"></i>
+                    <span class="font-semibold" data-i18n="header.backHome">Ana Sayfaya Dön</span>
+                </a>
+                
+                <!-- Language Toggle Switch -->
+                <div class="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-full p-1">
+                    <span class="text-xs font-semibold px-2 transition-colors flex items-center gap-1" id="lang-label-tr">
+                        <span>🇹🇷</span> TR
+                    </span>
+                    <button id="lang-switcher" class="relative w-11 h-6 bg-neutral-800 rounded-full transition-all hover:bg-neutral-700">
+                        <div id="lang-toggle-indicator" class="absolute top-0.5 left-0.5 w-5 h-5 bg-emerald-500 rounded-full transition-transform duration-300 shadow-lg"></div>
+                    </button>
+                    <span class="text-xs font-semibold px-2 transition-colors flex items-center gap-1" id="lang-label-en">
+                        <span>🇬🇧</span> EN
+                    </span>
+                </div>
+            </div>
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-emerald-400 text-xs font-semibold tracking-wide uppercase mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span data-i18n="header.badge">Yasal Bilgiler</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                <span data-i18n="header.title1">Kullanım</span> <span class="text-emerald-500" data-i18n="header.title2">Koşulları</span>
+            </h1>
+            <p class="text-neutral-400 text-lg" data-i18n="header.subtitle">Hizmet kullanımına ilişkin hüküm ve koşullar.</p>
+            <p class="text-neutral-500 text-sm mt-3 flex items-center gap-2">
+                <i data-lucide="calendar" class="w-4 h-4"></i>
+                <span data-i18n="header.lastUpdated">Son Güncelleme: 30 Ocak 2026</span>
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+        <!-- Intro Section -->
+        <div class="glass-card rounded-3xl p-8 md:p-10 mb-16 hover:border-emerald-500/30 transition-all duration-300">
+            <div class="flex items-start gap-4 mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="file-text" class="w-7 h-7 text-emerald-500"></i>
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2" data-i18n="intro.title">Giriş</h2>
+                    <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                </div>
+            </div>
+            <p class="text-neutral-400 text-lg leading-relaxed" data-i18n="intro.content">
+                Bu Kullanım Koşulları, <strong class="text-emerald-500">Quantly</strong> mobil uygulamasının kullanımına ilişkin hüküm ve koşulları belirlemektedir. Uygulamayı kullanarak bu koşulları kabul etmiş sayılırsınız.
+            </p>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="space-y-16">
+            <!-- Section 1: Service Description -->
+            <section class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="sparkles" class="w-7 h-7 text-emerald-500"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-2" data-i18n="section1.title">Hizmet Tanımı</h2>
+                        <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                    </div>
+                </div>
+                <p class="text-neutral-400 text-lg leading-relaxed mb-6" data-i18n="section1.intro">Quantly, aşağıdaki hizmetleri sunan bir kişisel finans yönetimi uygulamasıdır:</p>
+                <ul class="text-neutral-400 leading-relaxed space-y-3 list-none">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span data-i18n="section1.item1">Harcama takibi ve kayıt</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span data-i18n="section1.item2">Bütçe oluşturma ve yönetimi</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span data-i18n="section1.item3">Fiş/fatura tarama ve otomatik veri çıkarma</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span data-i18n="section1.item4">Düzenli ödeme takibi</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span data-i18n="section1.item5">Kategori bazlı harcama analizi</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <span data-i18n="section1.item6">Bildirimler ve hatırlatmalar</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Section 2: Financial Disclaimer -->
+            <section class="glass-card rounded-3xl p-8 md:p-10 hover:border-emerald-500/30 transition-all duration-300">
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="alert-triangle" class="w-7 h-7 text-emerald-500"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-2" data-i18n="section2.title">Finansal Sorumluluk Reddi</h2>
+                        <div class="w-20 h-1 bg-emerald-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-6 mb-6">
+                    <p class="text-emerald-300 font-semibold text-lg" data-i18n="section2.warning">
+                        Quantly bir finansal danışmanlık hizmeti değildir.
+                    </p>
+                </div>
+                <p class="text-neutral-400 text-lg leading-relaxed mb-6" data-i18n="section2.description">
+                    Uygulama yalnızca harcamalarınızı takip etmenize ve bütçenizi yönetmenize yardımcı olan bir araçtır.
+                </p>
+                <ul class="text-neutral-400 leading-relaxed space-y-3 list-disc list-inside">
+                    <li data-i18n="section2.item1">Uygulama üzerindeki veriler yatırım, vergi veya finansal tavsiye niteliğinde değildir.</li>
+                    <li data-i18n="section2.item2">Finansal kararlarınızdan yalnızca siz sorumlusunuz.</li>
+                    <li data-i18n="section2.item3">Profesyonel finansal danışmanlık için yetkili bir uzmana başvurmanızı öneririz.</li>
+                </ul>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="gradient-bg rounded-3xl p-8 md:p-12 shadow-2xl shadow-emerald-500/20">
+                <div class="flex items-start gap-4 mb-8">
+                    <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="mail" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-2" data-i18n="contact.title">İletişim</h2>
+                        <div class="w-20 h-1 bg-white/50 rounded-full"></div>
+                    </div>
+                </div>
+                <p class="text-white/90 text-lg leading-relaxed mb-8" data-i18n="contact.intro">
+                    Kullanım koşullarımız hakkında sorularınız için bizimle iletişime geçebilirsiniz:
+                </p>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+                        <h3 class="text-white font-bold text-lg" data-i18n="contact.email">E-posta</h3>
+                    </div>
+                    <a href="mailto:support@quantlyapp.com"
+                        class="text-white/90 hover:text-white transition-colors text-lg">support@quantlyapp.com</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-black border-t border-neutral-900 text-sm text-neutral-600 mt-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div
+                    class="w-6 h-6 rounded bg-emerald-600 flex items-center justify-center text-black text-xs font-bold">
+                    Q</div>
+                <span class="text-neutral-200 font-semibold">Quantly</span>
+            </div>
+
+            <div class="flex gap-8">
+                <a href="privacy-policy.html" class="hover:text-emerald-500 transition-colors" data-i18n="footer.privacy">Gizlilik Politikası</a>
+                <a href="terms-of-service.html" class="hover:text-emerald-500 transition-colors" data-i18n="footer.terms">Kullanım Şartları</a>
+                <a href="mailto:support@quantlyapp.com" class="hover:text-emerald-500 transition-colors" data-i18n="footer.contact">İletişim</a>
+            </div>
+
+            <div data-i18n="footer.copyright">
+                © 2026 Quantly. Tüm hakları saklıdır.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="backToTop"
+        class="fixed bottom-8 right-8 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-black rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-all duration-300 opacity-0 invisible hover:scale-110">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </a>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Translation data
+        const translations = {
+            tr: {
+                meta: { title: 'Kullanım Koşulları - Quantly' },
+                header: {
+                    backHome: 'Ana Sayfaya Dön',
+                    badge: 'Yasal Bilgiler',
+                    title1: 'Kullanım',
+                    title2: 'Koşulları',
+                    subtitle: 'Hizmet kullanımına ilişkin hüküm ve koşullar.',
+                    lastUpdated: 'Son Güncelleme: 30 Ocak 2026'
+                },
+                intro: {
+                    title: 'Giriş',
+                    content: 'Bu Kullanım Koşulları, Quantly mobil uygulamasının kullanımına ilişkin hüküm ve koşulları belirlemektedir. Uygulamayı kullanarak bu koşulları kabul etmiş sayılırsınız.'
+                },
+                section1: {
+                    title: 'Hizmet Tanımı',
+                    intro: 'Quantly, aşağıdaki hizmetleri sunan bir kişisel finans yönetimi uygulamasıdır:',
+                    item1: 'Harcama takibi ve kayıt',
+                    item2: 'Bütçe oluşturma ve yönetimi',
+                    item3: 'Fiş/fatura tarama ve otomatik veri çıkarma',
+                    item4: 'Düzenli ödeme takibi',
+                    item5: 'Kategori bazlı harcama analizi',
+                    item6: 'Bildirimler ve hatırlatmalar'
+                },
+                section2: {
+                    title: 'Finansal Sorumluluk Reddi',
+                    warning: 'Quantly bir finansal danışmanlık hizmeti değildir.',
+                    description: 'Uygulama yalnızca harcamalarınızı takip etmenize ve bütçenizi yönetmenize yardımcı olan bir araçtır.',
+                    item1: 'Uygulama üzerindeki veriler yatırım, vergi veya finansal tavsiye niteliğinde değildir.',
+                    item2: 'Finansal kararlarınızdan yalnızca siz sorumlusunuz.',
+                    item3: 'Profesyonel finansal danışmanlık için yetkili bir uzmana başvurmanızı öneririz.'
+                },
+                contact: {
+                    title: 'İletişim',
+                    intro: 'Kullanım koşullarımız hakkında sorularınız için bizimle iletişime geçebilirsiniz:',
+                    email: 'E-posta'
+                },
+                footer: {
+                    privacy: 'Gizlilik Politikası',
+                    terms: 'Kullanım Şartları',
+                    contact: 'İletişim',
+                    copyright: '© 2026 Quantly. Tüm hakları saklıdır.'
+                }
+            },
+            en: {
+                meta: { title: 'Terms of Service - Quantly' },
+                header: {
+                    backHome: 'Back to Home',
+                    badge: 'Legal Information',
+                    title1: 'Terms of',
+                    title2: 'Service',
+                    subtitle: 'Terms and conditions for using our service.',
+                    lastUpdated: 'Last Updated: January 30, 2026'
+                },
+                intro: {
+                    title: 'Introduction',
+                    content: 'These Terms of Service govern your use of the Quantly mobile application. By using the App, you agree to these terms.'
+                },
+                section1: {
+                    title: 'Service Description',
+                    intro: 'Quantly is a personal finance management application that provides the following services:',
+                    item1: 'Expense tracking and recording',
+                    item2: 'Budget creation and management',
+                    item3: 'Receipt/invoice scanning and automatic data extraction',
+                    item4: 'Recurring payment tracking',
+                    item5: 'Category-based expense analysis',
+                    item6: 'Notifications and reminders'
+                },
+                section2: {
+                    title: 'Financial Disclaimer',
+                    warning: 'Quantly is not a financial advisory service.',
+                    description: 'The App is solely a tool to help you track your expenses and manage your budget.',
+                    item1: 'Data in the App does not constitute investment, tax, or financial advice.',
+                    item2: 'You are solely responsible for your financial decisions.',
+                    item3: 'We recommend consulting a qualified professional for financial advisory services.'
+                },
+                contact: {
+                    title: 'Contact',
+                    intro: 'For questions about our terms of service, please contact us:',
+                    email: 'Email'
+                },
+                footer: {
+                    privacy: 'Privacy Policy',
+                    terms: 'Terms of Service',
+                    contact: 'Contact',
+                    copyright: '© 2026 Quantly. All rights reserved.'
+                }
+            }
+        };
+
+        // Get current language from localStorage or default to Turkish
+        let currentLang = localStorage.getItem('quantly-lang') || 'tr';
+
+        // Get translation value by key
+        function getTranslation(key, lang) {
+            const keys = key.split('.');
+            let value = translations[lang];
+            for (const k of keys) {
+                value = value?.[k];
+            }
+            return value || key;
+        }
+
+        // Apply translations to all elements with data-i18n
+        function applyTranslations(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getTranslation(key, lang);
+                element.textContent = translation;
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+            
+            // Update page title
+            document.title = getTranslation('meta.title', lang);
+        }
+
+        // Update language switcher appearance
+        function updateLanguageSwitcher(lang) {
+            const toggleIndicator = document.getElementById('lang-toggle-indicator');
+            const labelTr = document.getElementById('lang-label-tr');
+            const labelEn = document.getElementById('lang-label-en');
+
+            if (lang === 'tr') {
+                toggleIndicator.style.transform = 'translateX(0)';
+                labelTr.classList.add('text-white');
+                labelTr.classList.remove('text-neutral-500');
+                labelEn.classList.add('text-neutral-500');
+                labelEn.classList.remove('text-white');
+            } else {
+                toggleIndicator.style.transform = 'translateX(20px)';
+                labelTr.classList.add('text-neutral-500');
+                labelTr.classList.remove('text-white');
+                labelEn.classList.add('text-white');
+                labelEn.classList.remove('text-neutral-500');
+            }
+        }
+
+        // Toggle language
+        function toggleLanguage() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            localStorage.setItem('quantly-lang', currentLang);
+            applyTranslations(currentLang);
+            updateLanguageSwitcher(currentLang);
+        }
+
+        // Initialize
+        applyTranslations(currentLang);
+        updateLanguageSwitcher(currentLang);
+        document.getElementById('lang-switcher').addEventListener('click', toggleLanguage);
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr" class="scroll-smooth" id="html-root">
 
 <head>
     <meta charset="UTF-8">
@@ -152,10 +152,24 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-400">
-                <a href="#ozellikler" class="hover:text-white transition-colors">Özellikler</a>
-                <a href="#nasil-calisir" class="hover:text-white transition-colors">Nasıl Çalışır</a>
+                <a href="#ozellikler" class="hover:text-white transition-colors" data-i18n="nav.features">Özellikler</a>
+                <a href="#nasil-calisir" class="hover:text-white transition-colors" data-i18n="nav.howItWorks">Nasıl Çalışır</a>
+                
+                <!-- Language Toggle Switch -->
+                <div class="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-full p-1">
+                    <span class="text-xs font-semibold px-2 transition-colors flex items-center gap-1" id="lang-label-tr">
+                        <span>🇹🇷</span> TR
+                    </span>
+                    <button id="lang-switcher-desktop" class="relative w-11 h-6 bg-neutral-800 rounded-full transition-all hover:bg-neutral-700">
+                        <div id="lang-toggle-indicator" class="absolute top-0.5 left-0.5 w-5 h-5 bg-emerald-500 rounded-full transition-transform duration-300 shadow-lg"></div>
+                    </button>
+                    <span class="text-xs font-semibold px-2 transition-colors flex items-center gap-1" id="lang-label-en">
+                        <span>🇬🇧</span> EN
+                    </span>
+                </div>
+                
                 <button
-                    class="gradient-btn text-white px-5 py-2 rounded-full transition-all hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-105 font-semibold">
+                    class="gradient-btn text-white px-5 py-2 rounded-full transition-all hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:scale-105 font-semibold w-24 inline-flex items-center justify-center" data-i18n="nav.download">
                     İndir
                 </button>
             </div>
@@ -174,12 +188,26 @@
             </button>
 
             <a href="#ozellikler"
-                class="text-2xl font-bold text-white hover:text-emerald-500 transition-colors mobile-link">Özellikler</a>
+                class="text-2xl font-bold text-white hover:text-emerald-500 transition-colors mobile-link" data-i18n="nav.features">Özellikler</a>
             <a href="#nasil-calisir"
-                class="text-2xl font-bold text-white hover:text-emerald-500 transition-colors mobile-link">Nasıl
+                class="text-2xl font-bold text-white hover:text-emerald-500 transition-colors mobile-link" data-i18n="nav.howItWorks">Nasıl
                 Çalışır</a>
+            
+            <!-- Language Toggle Switch (Mobile) -->
+            <div class="flex items-center gap-3 bg-neutral-900 border border-neutral-800 rounded-full p-2">
+                <span class="text-lg font-bold px-3 transition-colors flex items-center gap-2" id="lang-label-tr-mobile">
+                    <span>🇹🇷</span> TR
+                </span>
+                <button id="lang-switcher-mobile" class="relative w-14 h-7 bg-neutral-800 rounded-full transition-all">
+                    <div id="lang-toggle-indicator-mobile" class="absolute top-0.5 left-0.5 w-6 h-6 bg-emerald-500 rounded-full transition-transform duration-300 shadow-lg"></div>
+                </button>
+                <span class="text-lg font-bold px-3 transition-colors flex items-center gap-2" id="lang-label-en-mobile">
+                    <span>🇬🇧</span> EN
+                </span>
+            </div>
+            
             <button
-                class="gradient-btn text-white px-8 py-3 rounded-full text-xl font-bold shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+                class="gradient-btn text-white px-8 py-3 rounded-full text-xl font-bold shadow-[0_0_20px_rgba(16,185,129,0.4)] min-w-[140px] inline-flex items-center justify-center" data-i18n="nav.download">
                 İndir
             </button>
         </div>
@@ -198,15 +226,15 @@
             <div
                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900 border border-neutral-800 text-emerald-400 text-xs font-semibold tracking-wide uppercase">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Yeni Nesil Finans
+                <span data-i18n="hero.badge">Yeni Nesil Finans</span>
             </div>
 
             <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white">
-                Harcamalarınızı Yönetmenin <br />
-                <span class="text-emerald-500">En Akıllı Yolu: Quantly</span>
+                <span data-i18n="hero.title1">Harcamalarınızı Yönetmenin</span> <br />
+                <span class="text-emerald-500" data-i18n="hero.title2">En Akıllı Yolu: Quantly</span>
             </h1>
 
-            <p class="text-lg text-neutral-400 max-w-xl mx-auto leading-relaxed">
+            <p class="text-lg text-neutral-400 max-w-xl mx-auto leading-relaxed" data-i18n="hero.subtitle">
                 Fişlerinizi tarayın, harcamalarınızı otomatik kategorize edin. Finansal özgürlüğünüzü karmaşık
                 tablolarla uğraşmadan geri kazanın.
             </p>
@@ -403,9 +431,9 @@
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                    Quantly'yi <span class="text-emerald-500">Aksiyon Halinde Görün</span>
+                    <span data-i18n="demo.title1">Quantly'yi</span> <span class="text-emerald-500" data-i18n="demo.title2">Aksiyon Halinde Görün</span>
                 </h2>
-                <p class="text-neutral-400 max-w-2xl mx-auto">
+                <p class="text-neutral-400 max-w-2xl mx-auto" data-i18n="demo.subtitle">
                     Akıllı fiş tarama, anlık analizler ve yapay zeka öngörüleriyle finansal yönetim deneyimini yeniden
                     tanımlıyoruz.
                 </p>
@@ -543,9 +571,9 @@
     <section id="ozellikler" class="py-16 md:py-32 px-6 bg-black relative">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Neden <span
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white"><span data-i18n="features.title1">Neden</span> <span
                         class="text-emerald-500">Quantly?</span></h2>
-                <p class="text-neutral-400 max-w-2xl mx-auto text-lg">Finansal alışkanlıklarınızı değiştirecek
+                <p class="text-neutral-400 max-w-2xl mx-auto text-lg" data-i18n="features.subtitle">Finansal alışkanlıklarınızı değiştirecek
                     özelliklerle tanışın.</p>
             </div>
 
@@ -557,8 +585,8 @@
                         class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
                         <i data-lucide="scan" class="w-7 h-7 text-emerald-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Belge & Fiş Tarama</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">Fiş ve faturalarınızı saniyeler içinde tarayıp
+                    <h3 class="text-xl font-bold mb-3 text-white" data-i18n="features.card1.title">Belge & Fiş Tarama</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-i18n="features.card1.desc">Fiş ve faturalarınızı saniyeler içinde tarayıp
                         dijitalleştirin. Kaybolan fiş derdine son.</p>
                 </div>
                 <!-- Card 2 -->
@@ -568,8 +596,8 @@
                         class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
                         <i data-lucide="calendar-clock" class="w-7 h-7 text-emerald-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Planlı Harcamalar</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">Gelecek ödemelerinizi ve faturalarınızı önceden
+                    <h3 class="text-xl font-bold mb-3 text-white" data-i18n="features.card2.title">Planlı Harcamalar</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-i18n="features.card2.desc">Gelecek ödemelerinizi ve faturalarınızı önceden
                         planlayın, son ödeme tarihlerini kaçırmayın.</p>
                 </div>
                 <!-- Card 3 -->
@@ -579,8 +607,8 @@
                         class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
                         <i data-lucide="refresh-cw" class="w-7 h-7 text-emerald-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Abonelik Yönetimi</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">Netflix, Spotify gibi düzenli ödemelerinizi tek
+                    <h3 class="text-xl font-bold mb-3 text-white" data-i18n="features.card3.title">Abonelik Yönetimi</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-i18n="features.card3.desc">Netflix, Spotify gibi düzenli ödemelerinizi tek
                         bir yerden takip edin ve gereksizleri iptal edin.</p>
                 </div>
                 <!-- Card 4 -->
@@ -590,8 +618,8 @@
                         class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
                         <i data-lucide="credit-card" class="w-7 h-7 text-emerald-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Taksit Takibi</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">Kredi kartı taksitlerinizi ve kalan borçlarınızı
+                    <h3 class="text-xl font-bold mb-3 text-white" data-i18n="features.card4.title">Taksit Takibi</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-i18n="features.card4.desc">Kredi kartı taksitlerinizi ve kalan borçlarınızı
                         kolayca izleyin, bütçenizi ona göre ayarlayın.</p>
                 </div>
                 <!-- Card 5 -->
@@ -601,8 +629,8 @@
                         class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
                         <i data-lucide="wallet" class="w-7 h-7 text-emerald-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Bütçe Takibi</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">Harcama limitleri belirleyin, kategori bazlı
+                    <h3 class="text-xl font-bold mb-3 text-white" data-i18n="features.card5.title">Bütçe Takibi</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-i18n="features.card5.desc">Harcama limitleri belirleyin, kategori bazlı
                         bütçeler oluşturun ve hedeflerinize ulaşın.</p>
                 </div>
                 <!-- Card 6 -->
@@ -612,8 +640,8 @@
                         class="w-14 h-14 rounded-2xl bg-neutral-800 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
                         <i data-lucide="chart-bar" class="w-7 h-7 text-emerald-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Anlamlı Grafikler</h3>
-                    <p class="text-neutral-400 leading-relaxed text-sm">Paranızın nereye gittiğini detaylı ve anlaşılır
+                    <h3 class="text-xl font-bold mb-3 text-white" data-i18n="features.card6.title">Anlamlı Grafikler</h3>
+                    <p class="text-neutral-400 leading-relaxed text-sm" data-i18n="features.card6.desc">Paranızın nereye gittiğini detaylı ve anlaşılır
                         grafiklerle analiz ederek tasarruf fırsatlarını görün.</p>
                 </div>
             </div>
@@ -624,8 +652,8 @@
     <section id="nasil-calisir" class="py-16 md:py-32 px-6 bg-neutral-950 border-t border-neutral-900">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Nasıl Çalışır?</h2>
-                <p class="text-neutral-400">3 basit adımda finansal hayatınızı düzene sokun.</p>
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white" data-i18n="howItWorks.title">Nasıl Çalışır?</h2>
+                <p class="text-neutral-400" data-i18n="howItWorks.subtitle">3 basit adımda finansal hayatınızı düzene sokun.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-12 relative">
@@ -638,8 +666,8 @@
                     <div
                         class="w-24 h-24 rounded-full bg-black border-4 border-neutral-800 flex items-center justify-center text-3xl font-bold text-neutral-500 mb-8 group-hover:border-emerald-500 group-hover:text-emerald-500 transition-all shadow-xl">
                         1</div>
-                    <h3 class="text-xl font-bold text-white mb-3">İndir ve Üye Ol</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs">Uygulamayı mağazadan ücretsiz indir ve
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="howItWorks.step1.title">İndir ve Üye Ol</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs" data-i18n="howItWorks.step1.desc">Uygulamayı mağazadan ücretsiz indir ve
                         saniyeler içinde hesabını oluştur.</p>
                 </div>
 
@@ -647,8 +675,8 @@
                     <div
                         class="w-24 h-24 rounded-full bg-black border-4 border-neutral-800 flex items-center justify-center text-3xl font-bold text-neutral-500 mb-8 group-hover:border-emerald-500 group-hover:text-emerald-500 transition-all shadow-xl">
                         2</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Harcamanı Ekle</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs">İster manuel ekle, ister fişinin
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="howItWorks.step2.title">Harcamanı Ekle</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs" data-i18n="howItWorks.step2.desc">İster manuel ekle, ister fişinin
                         fotoğrafını çek. Yapay zeka gerisini halletsin.</p>
                 </div>
 
@@ -656,8 +684,8 @@
                     <div
                         class="w-24 h-24 rounded-full bg-black border-4 border-neutral-800 flex items-center justify-center text-3xl font-bold text-neutral-500 mb-8 group-hover:border-emerald-500 group-hover:text-emerald-500 transition-all shadow-xl">
                         3</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Kontrolü Ele Al</h3>
-                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs">Bütçeni aşma, tasarruf hedeflerine ulaş
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="howItWorks.step3.title">Kontrolü Ele Al</h3>
+                    <p class="text-neutral-500 text-sm leading-relaxed max-w-xs" data-i18n="howItWorks.step3.desc">Bütçeni aşma, tasarruf hedeflerine ulaş
                         ve finansal özgürlüğün tadını çıkar.</p>
                 </div>
             </div>
@@ -665,7 +693,7 @@
             <div class="mt-20 text-center">
                 <button
                     class="gradient-btn px-10 py-4 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-emerald-500/20 transition-all hover:-translate-y-1 inline-flex items-center gap-2">
-                    Hemen Başla <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    <span data-i18n="howItWorks.cta">Hemen Başla</span> <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </button>
             </div>
         </div>
@@ -682,12 +710,12 @@
             </div>
 
             <div class="flex gap-8">
-                <a href="/privacy.html" class="hover:text-emerald-500 transition-colors">Gizlilik Politikası</a>
-                <a href="#" class="hover:text-emerald-500 transition-colors">Kullanım Şartları</a>
-                <a href="mailto:support@quantlyapp.com" class="hover:text-emerald-500 transition-colors">İletişim</a>
+                <a href="privacy-policy.html" class="hover:text-emerald-500 transition-colors" data-i18n="footer.privacy">Gizlilik Politikası</a>
+                <a href="terms-of-service.html" class="hover:text-emerald-500 transition-colors" data-i18n="footer.terms">Kullanım Şartları</a>
+                <a href="mailto:support@quantlyapp.com" class="hover:text-emerald-500 transition-colors" data-i18n="footer.contact">İletişim</a>
             </div>
 
-            <div>
+            <div data-i18n="footer.copyright">
                 © 2026 Quantly. Tüm hakları saklıdır.
             </div>
         </div>
@@ -887,6 +915,238 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', toggleMenu);
         });
+
+        // --- i18n (Internationalization) System ---
+        const translations = {
+            tr: {
+                nav: {
+                    features: "Özellikler",
+                    howItWorks: "Nasıl Çalışır",
+                    download: "İndir"
+                },
+                hero: {
+                    badge: "Yeni Nesil Finans",
+                    title1: "Harcamalarınızı Yönetmenin",
+                    title2: "En Akıllı Yolu: Quantly",
+                    subtitle: "Fişlerinizi tarayın, harcamalarınızı otomatik kategorize edin. Finansal özgürlüğünüzü karmaşık tablolarla uğraşmadan geri kazanın."
+                },
+                demo: {
+                    title1: "Quantly'yi",
+                    title2: "Aksiyon Halinde Görün",
+                    subtitle: "Akıllı fiş tarama, anlık analizler ve yapay zeka öngörüleriyle finansal yönetim deneyimini yeniden tanımlıyoruz."
+                },
+                features: {
+                    title1: "Neden",
+                    subtitle: "Finansal alışkanlıklarınızı değiştirecek özelliklerle tanışın.",
+                    card1: {
+                        title: "Belge & Fiş Tarama",
+                        desc: "Fiş ve faturalarınızı saniyeler içinde tarayıp dijitalleştirin. Kaybolan fiş derdine son."
+                    },
+                    card2: {
+                        title: "Planlı Harcamalar",
+                        desc: "Gelecek ödemelerinizi ve faturalarınızı önceden planlayın, son ödeme tarihlerini kaçırmayın."
+                    },
+                    card3: {
+                        title: "Abonelik Yönetimi",
+                        desc: "Netflix, Spotify gibi düzenli ödemelerinizi tek bir yerden takip edin ve gereksizleri iptal edin."
+                    },
+                    card4: {
+                        title: "Taksit Takibi",
+                        desc: "Kredi kartı taksitlerinizi ve kalan borçlarınızı kolayca izleyin, bütçenizi ona göre ayarlayın."
+                    },
+                    card5: {
+                        title: "Bütçe Takibi",
+                        desc: "Harcama limitleri belirleyin, kategori bazlı bütçeler oluşturun ve hedeflerinize ulaşın."
+                    },
+                    card6: {
+                        title: "Anlamlı Grafikler",
+                        desc: "Paranızın nereye gittiğini detaylı ve anlaşılır grafiklerle analiz ederek tasarruf fırsatlarını görün."
+                    }
+                },
+                howItWorks: {
+                    title: "Nasıl Çalışır?",
+                    subtitle: "3 basit adımda finansal hayatınızı düzene sokun.",
+                    step1: {
+                        title: "İndir ve Üye Ol",
+                        desc: "Uygulamayı mağazadan ücretsiz indir ve saniyeler içinde hesabını oluştur."
+                    },
+                    step2: {
+                        title: "Harcamanı Ekle",
+                        desc: "İster manuel ekle, ister fişinin fotoğrafını çek. Yapay zeka gerisini halletsin."
+                    },
+                    step3: {
+                        title: "Kontrolü Ele Al",
+                        desc: "Bütçeni aşma, tasarruf hedeflerine ulaş ve finansal özgürlüğün tadını çıkar."
+                    },
+                    cta: "Hemen Başla"
+                },
+                footer: {
+                    privacy: "Gizlilik Politikası",
+                    terms: "Kullanım Şartları",
+                    contact: "İletişim",
+                    copyright: "© 2026 Quantly. Tüm hakları saklıdır."
+                }
+            },
+            en: {
+                nav: {
+                    features: "Features",
+                    howItWorks: "How It Works",
+                    download: "Download"
+                },
+                hero: {
+                    badge: "Next-Gen Finance",
+                    title1: "The Smartest Way to",
+                    title2: "Manage Your Expenses: Quantly",
+                    subtitle: "Scan your receipts, automatically categorize your expenses. Regain your financial freedom without dealing with complex spreadsheets."
+                },
+                demo: {
+                    title1: "See Quantly",
+                    title2: "In Action",
+                    subtitle: "We're redefining the financial management experience with smart receipt scanning, instant analytics, and AI-powered insights."
+                },
+                features: {
+                    title1: "Why",
+                    subtitle: "Discover features that will transform your financial habits.",
+                    card1: {
+                        title: "Document & Receipt Scanning",
+                        desc: "Scan and digitize your receipts and invoices in seconds. Say goodbye to lost receipts."
+                    },
+                    card2: {
+                        title: "Scheduled Expenses",
+                        desc: "Plan your future payments and bills in advance, never miss a due date."
+                    },
+                    card3: {
+                        title: "Subscription Management",
+                        desc: "Track all your recurring payments like Netflix and Spotify in one place and cancel unnecessary ones."
+                    },
+                    card4: {
+                        title: "Installment Tracking",
+                        desc: "Easily monitor your credit card installments and remaining debts, adjust your budget accordingly."
+                    },
+                    card5: {
+                        title: "Budget Tracking",
+                        desc: "Set spending limits, create category-based budgets and reach your goals."
+                    },
+                    card6: {
+                        title: "Meaningful Charts",
+                        desc: "Analyze where your money goes with detailed and clear charts to discover savings opportunities."
+                    }
+                },
+                howItWorks: {
+                    title: "How It Works?",
+                    subtitle: "Organize your financial life in 3 simple steps.",
+                    step1: {
+                        title: "Download & Sign Up",
+                        desc: "Download the app for free from the store and create your account in seconds."
+                    },
+                    step2: {
+                        title: "Add Your Expense",
+                        desc: "Either add manually or take a photo of your receipt. Let AI handle the rest."
+                    },
+                    step3: {
+                        title: "Take Control",
+                        desc: "Don't exceed your budget, reach your savings goals and enjoy financial freedom."
+                    },
+                    cta: "Get Started"
+                },
+                footer: {
+                    privacy: "Privacy Policy",
+                    terms: "Terms of Service",
+                    contact: "Contact",
+                    copyright: "© 2026 Quantly. All rights reserved."
+                }
+            }
+        };
+
+        // Language state
+        let currentLang = localStorage.getItem('quantly-lang') || 'tr';
+
+        // Get nested translation value
+        function getTranslation(key, lang) {
+            const keys = key.split('.');
+            let value = translations[lang];
+            for (const k of keys) {
+                value = value?.[k];
+            }
+            return value || key;
+        }
+
+        // Apply translations to all elements with data-i18n
+        function applyTranslations(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getTranslation(key, lang);
+                element.textContent = translation;
+            });
+
+            // Update HTML lang attribute
+            document.getElementById('html-root').setAttribute('lang', lang);
+
+            // Update language switcher UI
+            updateLanguageSwitcher(lang);
+
+            // Save to localStorage
+            localStorage.setItem('quantly-lang', lang);
+            currentLang = lang;
+        }
+
+        // Update language switcher button appearance
+        function updateLanguageSwitcher(lang) {
+            // Desktop toggle switch
+            const toggleIndicator = document.getElementById('lang-toggle-indicator');
+            const labelTr = document.getElementById('lang-label-tr');
+            const labelEn = document.getElementById('lang-label-en');
+            
+            // Mobile toggle switch
+            const toggleIndicatorMobile = document.getElementById('lang-toggle-indicator-mobile');
+            const labelTrMobile = document.getElementById('lang-label-tr-mobile');
+            const labelEnMobile = document.getElementById('lang-label-en-mobile');
+
+            if (lang === 'tr') {
+                // Move toggle to left (TR)
+                toggleIndicator.style.transform = 'translateX(0)';
+                toggleIndicatorMobile.style.transform = 'translateX(0)';
+                
+                // Update label colors
+                labelTr.classList.add('text-white');
+                labelTr.classList.remove('text-neutral-500');
+                labelEn.classList.add('text-neutral-500');
+                labelEn.classList.remove('text-white');
+                
+                labelTrMobile.classList.add('text-white');
+                labelTrMobile.classList.remove('text-neutral-500');
+                labelEnMobile.classList.add('text-neutral-500');
+                labelEnMobile.classList.remove('text-white');
+            } else {
+                // Move toggle to right (EN)
+                toggleIndicator.style.transform = 'translateX(20px)';
+                toggleIndicatorMobile.style.transform = 'translateX(28px)';
+                
+                // Update label colors
+                labelTr.classList.add('text-neutral-500');
+                labelTr.classList.remove('text-white');
+                labelEn.classList.add('text-white');
+                labelEn.classList.remove('text-neutral-500');
+                
+                labelTrMobile.classList.add('text-neutral-500');
+                labelTrMobile.classList.remove('text-white');
+                labelEnMobile.classList.add('text-white');
+                labelEnMobile.classList.remove('text-neutral-500');
+            }
+        }
+
+        // Toggle language
+        function toggleLanguage() {
+            const newLang = currentLang === 'tr' ? 'en' : 'tr';
+            applyTranslations(newLang);
+        }
+
+        // Initialize language on page load
+        applyTranslations(currentLang);
+
+        // Add event listeners to language switchers
+        document.getElementById('lang-switcher-desktop').addEventListener('click', toggleLanguage);
+        document.getElementById('lang-switcher-mobile').addEventListener('click', toggleLanguage);
 
     </script>
 </body>
